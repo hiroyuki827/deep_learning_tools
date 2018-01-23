@@ -4,7 +4,7 @@ __all__ = [
     "mnist",
     "fashon_mnist"
     ]
-__version__ = "0.1"
+__version__ = "0.1.1"
 
 import dlt.utils
 import dlt.cifar

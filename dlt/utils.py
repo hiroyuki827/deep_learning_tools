@@ -130,10 +130,9 @@ def plot_confusion_matrix(test_labels, y_pred, classes,
     plt.xticks(tick_marks, classes, rotation=45)
     plt.yticks(tick_marks, classes)
 
-    fmt = '.2f'
     thresh = cm.max() / 2.
     for i, j in itertools.product(range(cm.shape[0]), range(cm.shape[1])):
-        plt.text(j, i, format(cm[i, j], fmt),
+        plt.text(j, i, format(cm[i, j], '.2f'),
                  horizontalalignment="center",
                  color="white" if cm[i, j] > thresh else "black")
 
@@ -154,27 +153,26 @@ def plot_loss_and_accuracy(fit, fname='loss_acc_graph.png'):
     """
     fig, (axL, axR) = plt.subplots(ncols=2, figsize=(10, 4))
 
-    if not (fit.history['val_loss'] and fit.history['val_acc']):
-        # Plot the loss in the history
-        axL.plot(fit.history['loss'], label="loss for training")
+
+    # Plot the loss in the history
+    axL.plot(fit.history['loss'], label="loss for training")
+    if fit.history['val_loss'] is not None:
         axL.plot(fit.history['val_loss'], label="loss for validation")
-        axL.set_title('model loss')
-        axL.set_xlabel('epoch')
-        axL.set_ylabel('loss')
-        axL.legend(loc='upper right')
+    axL.set_title('model loss')
+    axL.set_xlabel('epoch')
+    axL.set_ylabel('loss')
+    axL.legend(loc='upper right')
 
-        # Plot the loss in the history
-        axR.plot(fit.history['acc'], label="loss for training")
+    # Plot the loss in the history
+    axR.plot(fit.history['acc'], label="loss for training")
+    if fit.history['val_acc'] is not None:
         axR.plot(fit.history['val_acc'], label="loss for validation")
-        axR.set_title('model accuracy')
-        axR.set_xlabel('epoch')
-        axR.set_ylabel('accuracy')
-        axR.legend(loc='upper right')
+    axR.set_title('model accuracy')
+    axR.set_xlabel('epoch')
+    axR.set_ylabel('accuracy')
+    axR.legend(loc='upper right')
 
-        save_fig(fig, fname)
-
-    else:
-        print('Please set validation split option.')
+    save_fig(fig, fname)
 
 
 def save_fig(fig, fname='./'):

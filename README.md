@@ -1,8 +1,7 @@
 # dlt : Deep Learning Tools
 
 [![license](https://img.shields.io/github/license/mashape/apistatus.svg)](https://github.com/hiroyuki827/deep_learning_tools/blob/master/LICENSE.md)
-[![PyPI](https://img.shields.io/pypi/v/dlt.svg)](https://pypi.python.org/pypi/dlt/0.1)
-[![Github file size](https://img.shields.io/github/size/webcaetano/craft/build/phaser-craft.min.js.svg)](https://github.com/hiroyuki827/deep_learning_tools)
+[![PyPI](https://img.shields.io/pypi/v/dlt.svg)](https://pypi.python.org/pypi?:action=display&name=dlt&version=0.1.1)
 
 dlt (Deep Learning Tools) is developed from `dlipr`.
 
