@@ -226,6 +226,14 @@ if __name__ == '__main__':
     from keras.optimizers import Adadelta
     from keras.utils.np_utils import to_categorical
 
+    # For Travis
+    import os
+    import matplotlib as mpl
+
+    if os.environ.get('DISPLAY', '') == '':
+        print('no display found. Using non-interactive Agg backend')
+        mpl.use('Agg')
+
     # ---------------------------------------------------------
     # Load and preprocess data
     # ---------------------------------------------------------
