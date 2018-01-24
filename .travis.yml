@@ -6,7 +6,11 @@ python:
   - 3.6
 
 before_install:
-  - pip install dlt
+  - pip install tensorflow
+  - pip install keras
+  - pip install matplotlib
+  - pip install numpy
+  - pip install scikit-learn
 
 script:
-  - python dlt/utils.py
+  - python travis_test.py
