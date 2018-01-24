@@ -1,6 +1,7 @@
 """Test code on Travis.CI"""
 # For Travis
 import os
+import numpy as np
 
 import matplotlib as mpl
 from keras.layers import Conv2D, Dense, Dropout, MaxPooling2D, Flatten
