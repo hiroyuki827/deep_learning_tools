@@ -10,7 +10,7 @@ setup(
     maintainer='Hioyuki Fuchiue',
     maintainer_email='hiroyuki.fuchiue.827@gmail.com',
     description='The  package to visualize the result for the learners of the deep learning ',
-    install_requires=["keras", "Numpy", "scikit-learn", "matplotlib"],
+    install_requires=["tensorflow", "keras", "Numpy", "scikit-learn", "matplotlib"],
     classifiers=[
         'Programming Language :: Python :: 3',
         'Programming Language :: Python :: 3.3',
