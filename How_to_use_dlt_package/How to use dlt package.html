@@ -12229,7 +12229,7 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[12]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">classes</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">classes</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -12242,22 +12242,120 @@ div#notebook {
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[12]:</div>
+<div class="prompt"></div>
 
 
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>array([&#39;T-short/top&#39;, &#39;Trouser&#39;, &#39;Pullover&#39;, &#39;Dress&#39;, &#39;Coat&#39;, &#39;Sandal&#39;,
-       &#39;Shirt&#39;, &#39;Sneaker&#39;, &#39;Bag&#39;, &#39;Ankle boot&#39;],
-      dtype=&#39;&lt;U11&#39;)</pre>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>[&#39;T-short/top&#39; &#39;Trouser&#39; &#39;Pullover&#39; &#39;Dress&#39; &#39;Coat&#39; &#39;Sandal&#39; &#39;Shirt&#39;
+ &#39;Sneaker&#39; &#39;Bag&#39; &#39;Ankle boot&#39;]
+</pre>
 </div>
-
 </div>
 
 </div>
 </div>
 
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>★ You can examine how the true labels are distributed in <code>y_train</code>, <code>y_test</code>. The typical datasets are basically prepared the same number of the labels so that there is not bias of them. When we set up our own datasets, we need to do like this as much as possible in order to obtain correct results.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[13]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">dlt</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">plot_distribution_data</span><span class="p">(</span><span class="n">Y</span><span class="o">=</span><span class="n">data</span><span class="o">.</span><span class="n">train_labels</span><span class="p">,</span> <span class="c1"># set the target dataset</span>
+                                 <span class="n">dataset_name</span><span class="o">=</span><span class="s1">&#39;y_train&#39;</span><span class="p">,</span> <span class="c1"># its name</span>
+                                 <span class="n">classes</span><span class="o">=</span><span class="n">data</span><span class="o">.</span><span class="n">classes</span><span class="p">,</span> <span class="c1"># class label</span>
+                                 <span class="n">fname</span><span class="o">=</span><span class="s1">&#39;dist_train.png&#39;</span><span class="p">)</span> <span class="c1">#output filename (if not given, it just shows on the notebook.)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Mean Value: 6000
+Median Value: 6000.0
+Variance: 0
+Standard Deviation: 0.0
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><img src="dist_train.png"></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[14]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">dlt</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">plot_distribution_data</span><span class="p">(</span><span class="n">Y</span><span class="o">=</span><span class="n">data</span><span class="o">.</span><span class="n">test_labels</span><span class="p">,</span> 
+                                 <span class="n">dataset_name</span><span class="o">=</span><span class="s1">&#39;y_test&#39;</span><span class="p">,</span> 
+                                 <span class="n">classes</span><span class="o">=</span><span class="n">data</span><span class="o">.</span><span class="n">classes</span><span class="p">,</span> 
+                                 <span class="n">fname</span><span class="o">=</span><span class="s1">&#39;dist_test.png&#39;</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Mean Value: 6000
+Median Value: 6000.0
+Variance: 0
+Standard Deviation: 0.0
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><img src="dist_test.png"></p>
+
+</div>
+</div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
@@ -12270,12 +12368,13 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[13]:</div>
+<div class="prompt input_prompt">In&nbsp;[15]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">dlt</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">plot_examples</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> 
                           <span class="n">num_examples</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="c1"># How many images show on the column (#row corresponds #category)</span>
-                         <span class="n">fname</span><span class="o">=</span><span class="s1">&#39;fashion_mnist_examples.png&#39;</span><span class="p">)</span>
+                         <span class="n">fname</span><span class="o">=</span><span class="s1">&#39;fashion_mnist_examples.png&#39;</span> <span class="c1"># filename (if not given, it just shows on the notebook.)</span>
+                       <span class="p">)</span>
 </pre></div>
 
 </div>
@@ -12294,7 +12393,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[14]:</div>
+<div class="prompt input_prompt">In&nbsp;[16]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">X_train</span> <span class="o">=</span> <span class="n">X_train</span><span class="o">.</span><span class="n">reshape</span><span class="p">([</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">28</span><span class="p">,</span> <span class="mi">28</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
@@ -12345,29 +12444,29 @@ div#notebook {
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Train on 60000 samples, validate on 10000 samples
 Epoch 1/12
-60000/60000 [==============================] - 146s 2ms/step - loss: 0.6181 - acc: 0.7826 - val_loss: 0.3941 - val_acc: 0.8582
+60000/60000 [==============================] - 287s 5ms/step - loss: 0.6303 - acc: 0.7782 - val_loss: 0.3950 - val_acc: 0.8582
 Epoch 2/12
-60000/60000 [==============================] - 149s 2ms/step - loss: 0.3972 - acc: 0.8612 - val_loss: 0.3451 - val_acc: 0.8749
+60000/60000 [==============================] - 350s 6ms/step - loss: 0.4031 - acc: 0.8613 - val_loss: 0.3346 - val_acc: 0.8796
 Epoch 3/12
-60000/60000 [==============================] - 147s 2ms/step - loss: 0.3478 - acc: 0.8781 - val_loss: 0.3124 - val_acc: 0.8881
+60000/60000 [==============================] - 288s 5ms/step - loss: 0.3473 - acc: 0.8801 - val_loss: 0.3061 - val_acc: 0.8914
 Epoch 4/12
-60000/60000 [==============================] - 140s 2ms/step - loss: 0.3188 - acc: 0.8877 - val_loss: 0.2889 - val_acc: 0.8967
+60000/60000 [==============================] - 305s 5ms/step - loss: 0.3183 - acc: 0.8886 - val_loss: 0.2975 - val_acc: 0.8944
 Epoch 5/12
-60000/60000 [==============================] - 146s 2ms/step - loss: 0.2939 - acc: 0.8957 - val_loss: 0.2846 - val_acc: 0.8963
+60000/60000 [==============================] - 311s 5ms/step - loss: 0.2944 - acc: 0.8961 - val_loss: 0.2782 - val_acc: 0.8981
 Epoch 6/12
-60000/60000 [==============================] - 141s 2ms/step - loss: 0.2772 - acc: 0.9012 - val_loss: 0.2671 - val_acc: 0.9021
+60000/60000 [==============================] - 308s 5ms/step - loss: 0.2781 - acc: 0.9011 - val_loss: 0.2638 - val_acc: 0.9045
 Epoch 7/12
-60000/60000 [==============================] - 148s 2ms/step - loss: 0.2606 - acc: 0.9072 - val_loss: 0.2673 - val_acc: 0.9032
+60000/60000 [==============================] - 300s 5ms/step - loss: 0.2643 - acc: 0.9069 - val_loss: 0.2577 - val_acc: 0.9073
 Epoch 8/12
-60000/60000 [==============================] - 145s 2ms/step - loss: 0.2449 - acc: 0.9128 - val_loss: 0.2469 - val_acc: 0.9120
+60000/60000 [==============================] - 294s 5ms/step - loss: 0.2505 - acc: 0.9104 - val_loss: 0.2504 - val_acc: 0.9090
 Epoch 9/12
-60000/60000 [==============================] - 142s 2ms/step - loss: 0.2379 - acc: 0.9149 - val_loss: 0.2432 - val_acc: 0.9104
+60000/60000 [==============================] - 309s 5ms/step - loss: 0.2386 - acc: 0.9166 - val_loss: 0.2386 - val_acc: 0.9139
 Epoch 10/12
-60000/60000 [==============================] - 141s 2ms/step - loss: 0.2247 - acc: 0.9193 - val_loss: 0.2386 - val_acc: 0.9148
+60000/60000 [==============================] - 303s 5ms/step - loss: 0.2289 - acc: 0.9198 - val_loss: 0.2389 - val_acc: 0.9131
 Epoch 11/12
-60000/60000 [==============================] - 142s 2ms/step - loss: 0.2163 - acc: 0.9229 - val_loss: 0.2491 - val_acc: 0.9097
+60000/60000 [==============================] - 308s 5ms/step - loss: 0.2210 - acc: 0.9216 - val_loss: 0.2369 - val_acc: 0.9164
 Epoch 12/12
-60000/60000 [==============================] - 141s 2ms/step - loss: 0.2098 - acc: 0.9250 - val_loss: 0.2350 - val_acc: 0.9156
+60000/60000 [==============================] - 302s 5ms/step - loss: 0.2122 - acc: 0.9246 - val_loss: 0.2242 - val_acc: 0.9207
 </pre>
 </div>
 </div>
@@ -12378,7 +12477,7 @@ Epoch 12/12
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[15]:</div>
+<div class="prompt input_prompt">In&nbsp;[17]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">score</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
@@ -12400,8 +12499,8 @@ Epoch 12/12
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Test loss: 0.235042650437
-Test accuracy: 0.9156
+<pre>Test loss: 0.224214684319
+Test accuracy: 0.9207
 </pre>
 </div>
 </div>
@@ -12421,7 +12520,7 @@ Test accuracy: 0.9156
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[16]:</div>
+<div class="prompt input_prompt">In&nbsp;[18]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">dlt</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">plot_loss_and_accuracy</span><span class="p">(</span><span class="n">fit</span><span class="p">,</span>  <span class="c1"># instance of model.fit</span>
@@ -12445,7 +12544,7 @@ Test accuracy: 0.9156
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[17]:</div>
+<div class="prompt input_prompt">In&nbsp;[19]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># predicted probabilities for the test set</span>
@@ -12477,7 +12576,7 @@ Test accuracy: 0.9156
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[18]:</div>
+<div class="prompt input_prompt">In&nbsp;[20]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># 10 images</span>
@@ -12488,7 +12587,7 @@ Test accuracy: 0.9156
         <span class="n">y</span><span class="o">=</span><span class="n">data</span><span class="o">.</span><span class="n">test_labels</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="c1"># the correct label </span>
         <span class="n">classes</span><span class="o">=</span><span class="n">data</span><span class="o">.</span><span class="n">classes</span><span class="p">,</span> <span class="c1"># the label name</span>
         <span class="n">top_n</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="c1"># How many images from the top. If False, it shows all category</span>
-        <span class="n">fname</span><span class="o">=</span><span class="s1">&#39;test-</span><span class="si">%i</span><span class="s1">.png&#39;</span> <span class="o">%</span> <span class="n">i</span><span class="p">)</span> <span class="c1"># filepath</span>
+        <span class="n">fname</span><span class="o">=</span><span class="s1">&#39;test-</span><span class="si">%i</span><span class="s1">.png&#39;</span> <span class="o">%</span> <span class="n">i</span><span class="p">)</span> <span class="c1"># filepath (if not given, it just shows on the notebook.)</span>
 </pre></div>
 
 </div>
@@ -12530,14 +12629,15 @@ Test accuracy: 0.9156
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[19]:</div>
+<div class="prompt input_prompt">In&nbsp;[21]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">dlt</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">plot_confusion_matrix</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">test_labels</span><span class="p">,</span> <span class="c1"># the correct label (before converting one-hot vector)</span>
-                                  <span class="n">yp</span><span class="p">,</span> <span class="c1"># Yp after np.argmax</span>
-                                  <span class="n">data</span><span class="o">.</span><span class="n">classes</span><span class="p">,</span> <span class="c1"># the label name</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">dlt</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">plot_confusion_matrix</span><span class="p">(</span><span class="n">test_labels</span><span class="o">=</span><span class="n">data</span><span class="o">.</span><span class="n">test_labels</span><span class="p">,</span> <span class="c1"># the correct label (before converting one-hot vector)</span>
+                                  <span class="n">y_pred</span><span class="o">=</span><span class="n">yp</span><span class="p">,</span> <span class="c1"># Yp after np.argmax</span>
+                                  <span class="n">classes</span><span class="o">=</span><span class="n">data</span><span class="o">.</span><span class="n">classes</span><span class="p">,</span> <span class="c1"># the label name</span>
                                   <span class="n">title</span><span class="o">=</span><span class="s1">&#39;confusion matrix&#39;</span><span class="p">,</span> <span class="c1"># title of the graph</span>
-                                  <span class="n">fname</span><span class="o">=</span><span class="s1">&#39;confusion_matrix.png&#39;</span><span class="p">)</span> <span class="c1"># filepath</span>
+                                  <span class="n">fname</span><span class="o">=</span><span class="s1">&#39;confusion_matrix.png&#39;</span> <span class="c1"># filename (if not given, it just shows on the notebook.)</span>
+                               <span class="p">)</span>
 </pre></div>
 
 </div>

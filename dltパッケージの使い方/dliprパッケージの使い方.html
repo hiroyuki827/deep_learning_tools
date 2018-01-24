@@ -12006,7 +12006,8 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">keras</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="kn">import</span> <span class="nn">keras</span>
 <span class="kn">from</span> <span class="nn">keras.models</span> <span class="k">import</span> <span class="n">Sequential</span>
 <span class="kn">from</span> <span class="nn">keras.layers</span> <span class="k">import</span> <span class="n">Dense</span><span class="p">,</span> <span class="n">Dropout</span><span class="p">,</span> <span class="n">Flatten</span><span class="p">,</span> <span class="n">Activation</span>
 <span class="kn">from</span> <span class="nn">keras.layers</span> <span class="k">import</span> <span class="n">Conv2D</span><span class="p">,</span> <span class="n">MaxPooling2D</span>
@@ -12239,12 +12240,25 @@ div#notebook {
 </div>
 
 </div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>★また、各ターゲットとなるデータセット<code>y_train</code>, <code>y_test</code>に、正解ラベルがどういう分布で含まれているかは以下のようにしてチェックできます。代表的なデータセットはラベルの偏りがないように、それぞれのラベルに対して同数の学習データが用意されています。自分で画像を持ってきて用意する際も、なるべくこのようにすることが理想的です。</p>
+
+</div>
+</div>
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[12]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">classes</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">dlt</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">plot_distribution_data</span><span class="p">(</span><span class="n">Y</span><span class="o">=</span><span class="n">data</span><span class="o">.</span><span class="n">train_labels</span><span class="p">,</span> <span class="c1">#正解ラベルのデータセット</span>
+                                 <span class="n">dataset_name</span><span class="o">=</span><span class="s1">&#39;y_train&#39;</span><span class="p">,</span> <span class="c1"># そのデータセットの名前</span>
+                                 <span class="n">classes</span><span class="o">=</span><span class="n">data</span><span class="o">.</span><span class="n">classes</span><span class="p">,</span> <span class="c1"># ラベル</span>
+                                 <span class="n">fname</span><span class="o">=</span><span class="s1">&#39;dist_train.png&#39;</span> <span class="c1"># 出力するファイルパス</span>
+                                <span class="p">)</span>
 </pre></div>
 
 </div>
@@ -12257,22 +12271,85 @@ div#notebook {
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[12]:</div>
+<div class="prompt"></div>
 
 
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>array([&#39;T-short/top&#39;, &#39;Trouser&#39;, &#39;Pullover&#39;, &#39;Dress&#39;, &#39;Coat&#39;, &#39;Sandal&#39;,
-       &#39;Shirt&#39;, &#39;Sneaker&#39;, &#39;Bag&#39;, &#39;Ankle boot&#39;],
-      dtype=&#39;&lt;U11&#39;)</pre>
-</div>
-
-</div>
-
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Mean Value: 6000
+Median Value: 6000.0
+Variance: 0
+Standard Deviation: 0.0
+</pre>
 </div>
 </div>
 
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><img src="dist_train.png"></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[13]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">dlt</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">plot_distribution_data</span><span class="p">(</span><span class="n">Y</span><span class="o">=</span><span class="n">data</span><span class="o">.</span><span class="n">test_labels</span><span class="p">,</span> 
+                                 <span class="n">dataset_name</span><span class="o">=</span><span class="s1">&#39;y_test&#39;</span><span class="p">,</span> 
+                                 <span class="n">classes</span><span class="o">=</span><span class="n">data</span><span class="o">.</span><span class="n">classes</span><span class="p">,</span> 
+                                 <span class="n">fname</span><span class="o">=</span><span class="s1">&#39;dist_test.png&#39;</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Mean Value: 6000
+Median Value: 6000.0
+Variance: 0
+Standard Deviation: 0.0
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><img src="dist_test.png"></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>注意</strong> ファイルパスが与えられない場合、画像はJupyter notebook上に直接表示されます。その場合、<code>%matplotlib inline</code>とコードの頭に書くことが必要になります。</p>
+
+</div>
+</div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
@@ -12285,12 +12362,12 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[13]:</div>
+<div class="prompt input_prompt">In&nbsp;[14]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">dlt</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">plot_examples</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> 
                           <span class="n">num_examples</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="c1"># 縦に何個表示するか (横はカテゴリーと一致)</span>
-                         <span class="n">fname</span><span class="o">=</span><span class="s1">&#39;fashion_mnist_examples.png&#39;</span> <span class="c1"># 画像を保存するためのファイルパス</span>
+                         <span class="n">fname</span><span class="o">=</span><span class="s1">&#39;fashion_mnist_examples.png&#39;</span> <span class="c1"># ファイルパス</span>
                        <span class="p">)</span>
 </pre></div>
 
@@ -12310,7 +12387,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[14]:</div>
+<div class="prompt input_prompt">In&nbsp;[15]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">X_train</span> <span class="o">=</span> <span class="n">X_train</span><span class="o">.</span><span class="n">reshape</span><span class="p">([</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">28</span><span class="p">,</span> <span class="mi">28</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
@@ -12337,7 +12414,7 @@ div#notebook {
 <span class="n">model</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">loss</span><span class="o">=</span><span class="n">keras</span><span class="o">.</span><span class="n">losses</span><span class="o">.</span><span class="n">categorical_crossentropy</span><span class="p">,</span>
               <span class="n">optimizer</span><span class="o">=</span><span class="n">keras</span><span class="o">.</span><span class="n">optimizers</span><span class="o">.</span><span class="n">Adadelta</span><span class="p">(),</span>
               <span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;accuracy&#39;</span><span class="p">])</span>
-
+              
 <span class="n">fit</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span>
           <span class="n">batch_size</span><span class="o">=</span><span class="mi">128</span><span class="p">,</span>
           <span class="n">epochs</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span>
@@ -12361,29 +12438,29 @@ div#notebook {
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Train on 60000 samples, validate on 10000 samples
 Epoch 1/12
-60000/60000 [==============================] - 146s 2ms/step - loss: 0.6181 - acc: 0.7826 - val_loss: 0.3941 - val_acc: 0.8582
+60000/60000 [==============================] - 289s 5ms/step - loss: 0.6023 - acc: 0.7908 - val_loss: 0.3954 - val_acc: 0.8592
 Epoch 2/12
-60000/60000 [==============================] - 149s 2ms/step - loss: 0.3972 - acc: 0.8612 - val_loss: 0.3451 - val_acc: 0.8749
+60000/60000 [==============================] - 350s 6ms/step - loss: 0.3897 - acc: 0.8630 - val_loss: 0.3380 - val_acc: 0.8793
 Epoch 3/12
-60000/60000 [==============================] - 147s 2ms/step - loss: 0.3478 - acc: 0.8781 - val_loss: 0.3124 - val_acc: 0.8881
+60000/60000 [==============================] - 287s 5ms/step - loss: 0.3415 - acc: 0.8805 - val_loss: 0.3063 - val_acc: 0.8903
 Epoch 4/12
-60000/60000 [==============================] - 140s 2ms/step - loss: 0.3188 - acc: 0.8877 - val_loss: 0.2889 - val_acc: 0.8967
+60000/60000 [==============================] - 306s 5ms/step - loss: 0.3150 - acc: 0.8892 - val_loss: 0.2884 - val_acc: 0.8974
 Epoch 5/12
-60000/60000 [==============================] - 146s 2ms/step - loss: 0.2939 - acc: 0.8957 - val_loss: 0.2846 - val_acc: 0.8963
+60000/60000 [==============================] - 310s 5ms/step - loss: 0.2922 - acc: 0.8971 - val_loss: 0.2751 - val_acc: 0.9004
 Epoch 6/12
-60000/60000 [==============================] - 141s 2ms/step - loss: 0.2772 - acc: 0.9012 - val_loss: 0.2671 - val_acc: 0.9021
+60000/60000 [==============================] - 308s 5ms/step - loss: 0.2746 - acc: 0.9029 - val_loss: 0.2673 - val_acc: 0.9040
 Epoch 7/12
-60000/60000 [==============================] - 148s 2ms/step - loss: 0.2606 - acc: 0.9072 - val_loss: 0.2673 - val_acc: 0.9032
+60000/60000 [==============================] - 299s 5ms/step - loss: 0.2603 - acc: 0.9070 - val_loss: 0.2538 - val_acc: 0.9093
 Epoch 8/12
-60000/60000 [==============================] - 145s 2ms/step - loss: 0.2449 - acc: 0.9128 - val_loss: 0.2469 - val_acc: 0.9120
+60000/60000 [==============================] - 296s 5ms/step - loss: 0.2494 - acc: 0.9118 - val_loss: 0.2533 - val_acc: 0.9070
 Epoch 9/12
-60000/60000 [==============================] - 142s 2ms/step - loss: 0.2379 - acc: 0.9149 - val_loss: 0.2432 - val_acc: 0.9104
+60000/60000 [==============================] - 308s 5ms/step - loss: 0.2372 - acc: 0.9168 - val_loss: 0.2441 - val_acc: 0.9105
 Epoch 10/12
-60000/60000 [==============================] - 141s 2ms/step - loss: 0.2247 - acc: 0.9193 - val_loss: 0.2386 - val_acc: 0.9148
+60000/60000 [==============================] - 303s 5ms/step - loss: 0.2271 - acc: 0.9184 - val_loss: 0.2344 - val_acc: 0.9142
 Epoch 11/12
-60000/60000 [==============================] - 142s 2ms/step - loss: 0.2163 - acc: 0.9229 - val_loss: 0.2491 - val_acc: 0.9097
+60000/60000 [==============================] - 308s 5ms/step - loss: 0.2195 - acc: 0.9221 - val_loss: 0.2338 - val_acc: 0.9162
 Epoch 12/12
-60000/60000 [==============================] - 141s 2ms/step - loss: 0.2098 - acc: 0.9250 - val_loss: 0.2350 - val_acc: 0.9156
+60000/60000 [==============================] - 300s 5ms/step - loss: 0.2101 - acc: 0.9259 - val_loss: 0.2338 - val_acc: 0.9168
 </pre>
 </div>
 </div>
@@ -12394,7 +12471,7 @@ Epoch 12/12
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[15]:</div>
+<div class="prompt input_prompt">In&nbsp;[16]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">score</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
@@ -12416,8 +12493,8 @@ Epoch 12/12
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Test loss: 0.235042650437
-Test accuracy: 0.9156
+<pre>Test loss: 0.233760581553
+Test accuracy: 0.9168
 </pre>
 </div>
 </div>
@@ -12437,7 +12514,7 @@ Test accuracy: 0.9156
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[16]:</div>
+<div class="prompt input_prompt">In&nbsp;[17]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">dlt</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">plot_loss_and_accuracy</span><span class="p">(</span><span class="n">fit</span><span class="p">,</span>  <span class="c1">#model.fitのインスタンス</span>
@@ -12470,7 +12547,7 @@ Test accuracy: 0.9156
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[17]:</div>
+<div class="prompt input_prompt">In&nbsp;[18]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># predicted probabilities for the test set</span>
@@ -12502,7 +12579,7 @@ Test accuracy: 0.9156
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[18]:</div>
+<div class="prompt input_prompt">In&nbsp;[19]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># とりあえず10枚</span>
@@ -12556,12 +12633,12 @@ Test accuracy: 0.9156
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[19]:</div>
+<div class="prompt input_prompt">In&nbsp;[20]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">dlt</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">plot_confusion_matrix</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">test_labels</span><span class="p">,</span> <span class="c1"># 正しいテストラベル(one-hot vectorに変換する前)</span>
-                                  <span class="n">yp</span><span class="p">,</span> <span class="c1"># np.argmaxを通したYp </span>
-                                  <span class="n">data</span><span class="o">.</span><span class="n">classes</span><span class="p">,</span> <span class="c1"># クラス名</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">dlt</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">plot_confusion_matrix</span><span class="p">(</span><span class="n">test_labels</span><span class="o">=</span><span class="n">data</span><span class="o">.</span><span class="n">test_labels</span><span class="p">,</span> <span class="c1"># 正しいテストラベル(one-hot vectorに変換する前)</span>
+                                  <span class="n">y_pred</span><span class="o">=</span><span class="n">yp</span><span class="p">,</span> <span class="c1"># np.argmaxを通したYp </span>
+                                  <span class="n">classes</span><span class="o">=</span><span class="n">data</span><span class="o">.</span><span class="n">classes</span><span class="p">,</span> <span class="c1"># クラス名</span>
                                   <span class="n">title</span><span class="o">=</span><span class="s1">&#39;confusion matrix&#39;</span><span class="p">,</span> <span class="c1"># 出力グラフのタイトル</span>
                                   <span class="n">fname</span><span class="o">=</span><span class="s1">&#39;confusion_matrix.png&#39;</span><span class="p">)</span> <span class="c1"># 出力パス</span>
 </pre></div>

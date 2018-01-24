@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
     name='dlt',
-    version='0.1.1',
+    version='0.2.1',
     packages=['dlt'],
     url='https://github.com/hiroyuki827/deep_learning_tools',
     license='MIT',
@@ -12,8 +12,8 @@ setup(
     description='The  package to visualize the result for the learners of the deep learning ',
     install_requires=["tensorflow", "keras", "Numpy", "scikit-learn", "matplotlib"],
     classifiers=[
+        'Programming Language :: Python :: 3 :: Only',
         'Programming Language :: Python :: 3',
-        'Programming Language :: Python :: 3.3',
         'Programming Language :: Python :: 3.4',
         'Programming Language :: Python :: 3.5',
         'Programming Language :: Python :: 3.6',
