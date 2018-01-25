@@ -6,14 +6,16 @@ import itertools
 import os
 from statistics import mean, median, variance, stdev
 
-import matplotlib.pyplot as plt
-import numpy as np
-from sklearn.metrics import confusion_matrix
 import matplotlib as mpl
 
 if os.environ.get('DISPLAY', '') == '':
     print('no display found. Using non-interactive Agg backend')
     mpl.use('Agg')
+
+import matplotlib.pyplot as plt
+import numpy as np
+from sklearn.metrics import confusion_matrix
+
 
 class Dataset():
     """Simple dataset container
