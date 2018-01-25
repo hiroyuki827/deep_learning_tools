@@ -6,13 +6,10 @@ import itertools
 import os
 from statistics import mean, median, variance, stdev
 
-import matplotlib as mpl
-if os.environ.get('DISPLAY', '') == '':
-    print('no display found. Using non-interactive Agg backend')
-    mpl.use('Agg')
 import matplotlib.pyplot as plt
 import numpy as np
 from sklearn.metrics import confusion_matrix
+
 
 class Dataset():
     """Simple dataset container
@@ -219,8 +216,13 @@ def save_fig(fig, fname=None):
     plt.close()
 
 
-def main():
+def __main():
     """Test code on Travis.CI"""
+    import matplotlib as mpl
+
+    if os.environ.get('DISPLAY', '') == '':
+        print('no display found. Using non-interactive Agg backend')
+        mpl.use('Agg')
     from keras.layers import Conv2D, Dense, Dropout, MaxPooling2D, Flatten
     from keras.losses import categorical_crossentropy
     from keras.models import Sequential
@@ -318,4 +320,4 @@ def main():
 
 
 if __name__ == '__main__':
-    main()
+    __main()

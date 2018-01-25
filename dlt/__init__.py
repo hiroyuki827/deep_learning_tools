@@ -4,9 +4,8 @@ __all__ = [
     "mnist",
     "fashion_mnist"
     ]
-__version__ = "0.2"
 
-import dlt.utils
-import dlt.cifar
-import dlt.mnist
-import dlt.fashion_mnist
+from . import utils
+from . import cifar
+from . import mnist
+from . import fashion_mnist
