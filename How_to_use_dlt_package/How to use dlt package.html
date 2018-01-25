@@ -12273,7 +12273,7 @@ div#notebook {
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">dlt</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">plot_distribution_data</span><span class="p">(</span><span class="n">Y</span><span class="o">=</span><span class="n">data</span><span class="o">.</span><span class="n">train_labels</span><span class="p">,</span> <span class="c1"># set the target dataset</span>
                                  <span class="n">dataset_name</span><span class="o">=</span><span class="s1">&#39;y_train&#39;</span><span class="p">,</span> <span class="c1"># its name</span>
                                  <span class="n">classes</span><span class="o">=</span><span class="n">data</span><span class="o">.</span><span class="n">classes</span><span class="p">,</span> <span class="c1"># class label</span>
-                                 <span class="n">fname</span><span class="o">=</span><span class="s1">&#39;dist_train.png&#39;</span><span class="p">)</span> <span class="c1">#output filename (if not given, it just shows on the notebook.)</span>
+                                 <span class="n">fname</span><span class="o">=</span><span class="s1">&#39;dist_train.png&#39;</span><span class="p">)</span> <span class="c1"># output filename</span>
 </pre></div>
 
 </div>
@@ -12373,7 +12373,7 @@ Standard Deviation: 0.0
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">dlt</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">plot_examples</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> 
                           <span class="n">num_examples</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="c1"># How many images show on the column (#row corresponds #category)</span>
-                         <span class="n">fname</span><span class="o">=</span><span class="s1">&#39;fashion_mnist_examples.png&#39;</span> <span class="c1"># filename (if not given, it just shows on the notebook.)</span>
+                         <span class="n">fname</span><span class="o">=</span><span class="s1">&#39;fashion_mnist_examples.png&#39;</span> <span class="c1"># filename</span>
                        <span class="p">)</span>
 </pre></div>
 
@@ -12587,7 +12587,7 @@ Test accuracy: 0.9207
         <span class="n">y</span><span class="o">=</span><span class="n">data</span><span class="o">.</span><span class="n">test_labels</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="c1"># the correct label </span>
         <span class="n">classes</span><span class="o">=</span><span class="n">data</span><span class="o">.</span><span class="n">classes</span><span class="p">,</span> <span class="c1"># the label name</span>
         <span class="n">top_n</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="c1"># How many images from the top. If False, it shows all category</span>
-        <span class="n">fname</span><span class="o">=</span><span class="s1">&#39;test-</span><span class="si">%i</span><span class="s1">.png&#39;</span> <span class="o">%</span> <span class="n">i</span><span class="p">)</span> <span class="c1"># filepath (if not given, it just shows on the notebook.)</span>
+        <span class="n">fname</span><span class="o">=</span><span class="s1">&#39;test-</span><span class="si">%i</span><span class="s1">.png&#39;</span> <span class="o">%</span> <span class="n">i</span><span class="p">)</span> <span class="c1"># filepath</span>
 </pre></div>
 
 </div>
@@ -12636,7 +12636,7 @@ Test accuracy: 0.9207
                                   <span class="n">y_pred</span><span class="o">=</span><span class="n">yp</span><span class="p">,</span> <span class="c1"># Yp after np.argmax</span>
                                   <span class="n">classes</span><span class="o">=</span><span class="n">data</span><span class="o">.</span><span class="n">classes</span><span class="p">,</span> <span class="c1"># the label name</span>
                                   <span class="n">title</span><span class="o">=</span><span class="s1">&#39;confusion matrix&#39;</span><span class="p">,</span> <span class="c1"># title of the graph</span>
-                                  <span class="n">fname</span><span class="o">=</span><span class="s1">&#39;confusion_matrix.png&#39;</span> <span class="c1"># filename (if not given, it just shows on the notebook.)</span>
+                                  <span class="n">fname</span><span class="o">=</span><span class="s1">&#39;confusion_matrix.png&#39;</span> <span class="c1"># filename</span>
                                <span class="p">)</span>
 </pre></div>
 

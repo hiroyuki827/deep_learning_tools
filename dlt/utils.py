@@ -9,7 +9,11 @@ from statistics import mean, median, variance, stdev
 import matplotlib.pyplot as plt
 import numpy as np
 from sklearn.metrics import confusion_matrix
+import matplotlib as mpl
 
+if os.environ.get('DISPLAY', '') == '':
+    print('no display found. Using non-interactive Agg backend')
+    mpl.use('Agg')
 
 class Dataset():
     """Simple dataset container
@@ -211,18 +215,11 @@ def plot_loss_and_accuracy(fit, fname=None):
 def save_fig(fig, fname=None):
     if fname is not None:
         fig.savefig(fname, bbox_inches='tight')
-    else:
-        fig.show()
     plt.close()
 
 
 def __main():
     """Test code on Travis.CI"""
-    import matplotlib as mpl
-
-    if os.environ.get('DISPLAY', '') == '':
-        print('no display found. Using non-interactive Agg backend')
-        mpl.use('Agg')
     from keras.layers import Conv2D, Dense, Dropout, MaxPooling2D, Flatten
     from keras.losses import categorical_crossentropy
     from keras.models import Sequential
