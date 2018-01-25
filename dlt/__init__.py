@@ -2,7 +2,7 @@ __all__ = [
     "utils",
     "cifar",
     "mnist",
-    "fashon_mnist"
+    "fashion_mnist"
     ]
 __version__ = "0.2"
 

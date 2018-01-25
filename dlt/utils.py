@@ -219,19 +219,14 @@ def save_fig(fig, fname=None):
     plt.close()
 
 
-if __name__ == '__main__':
-
-    import os
-
+def main():
+    """Test code on Travis.CI"""
     from keras.layers import Conv2D, Dense, Dropout, MaxPooling2D, Flatten
     from keras.losses import categorical_crossentropy
     from keras.models import Sequential
     from keras.optimizers import Adadelta
     from keras.utils.np_utils import to_categorical
     import dlt
-
-    """Test code on Travis.CI"""
-
 
     # ---------------------------------------------------------
     # Load and preprocess data
@@ -246,9 +241,6 @@ if __name__ == '__main__':
     # RGB 255 = white, 0 = black
     X_train = data.train_images.reshape([-1, 28, 28, 1])
     X_test = data.test_images.reshape([-1, 28, 28, 1])
-    print('%i training samples' % X_train.shape[0])
-    print('%i test samples' % X_test.shape[0])
-    print(X_train.shape)
 
     # convert integer RGB values (0-255) to float values (0-1)
     X_train = X_train.astype('float32') / 255
@@ -260,14 +252,12 @@ if __name__ == '__main__':
 
     # Plot data distribution for Y_train
     dlt.utils.plot_distribution_data(Y=data.train_labels,
-                                     dataset_name='y_train',
+                                     dataset_name='Y_train',
                                      classes=data.classes,
                                      fname='dist_train.png')
     # ----------------------------------------------------------
     # Model and training
     # ----------------------------------------------------------
-
-    num_classes = 10
 
     model = Sequential()
     model.add(Conv2D(32, kernel_size=(3, 3),
@@ -287,7 +277,7 @@ if __name__ == '__main__':
 
     fit = model.fit(X_train, Y_train,
                     batch_size=128,
-                    epochs=12,
+                    epochs=3,
                     verbose=1,
                     validation_data=(X_test, Y_test))
 
@@ -325,3 +315,7 @@ if __name__ == '__main__':
     dlt.utils.plot_loss_and_accuracy(fit,  # model.fitのインスタンス
                                      fname='loss_and_accuracy_graph.png'  # 保存するファイル名とパス
                                      )
+
+
+if __name__ == '__main__':
+    main()
