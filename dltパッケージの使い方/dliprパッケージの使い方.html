@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head><meta charset="utf-8" />
-<title>dliprパッケージの使い方</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>dliprパッケージの使い方</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 
 <style type="text/css">
@@ -12542,8 +12542,8 @@ Test accuracy: 0.9168
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># predicted probabilities for the test set</span>
-<span class="n">Yp</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
-<span class="n">yp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">Yp</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">preds</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+<span class="bp">cls</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict_classes</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -12576,7 +12576,7 @@ Test accuracy: 0.9168
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># とりあえず10枚</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
     <span class="n">dlt</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">plot_prediction</span><span class="p">(</span>
-        <span class="n">Yp</span><span class="o">=</span><span class="n">Yp</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="c1"># 各クラスに対して予測されたラベル </span>
+        <span class="n">Yp</span><span class="o">=</span><span class="n">preds</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="c1"># 各クラスに対して予測されたラベル </span>
         <span class="n">X</span><span class="o">=</span><span class="n">data</span><span class="o">.</span><span class="n">test_images</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="c1"># 各クラスを表す画像</span>
         <span class="n">y</span><span class="o">=</span><span class="n">data</span><span class="o">.</span><span class="n">test_labels</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="c1"># 正しいクラスのラベル</span>
         <span class="n">classes</span><span class="o">=</span><span class="n">data</span><span class="o">.</span><span class="n">classes</span><span class="p">,</span> <span class="c1"># ラベル名</span>
@@ -12628,7 +12628,7 @@ Test accuracy: 0.9168
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">dlt</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">plot_confusion_matrix</span><span class="p">(</span><span class="n">test_labels</span><span class="o">=</span><span class="n">data</span><span class="o">.</span><span class="n">test_labels</span><span class="p">,</span> <span class="c1"># 正しいテストラベル(one-hot vectorに変換する前)</span>
-                                  <span class="n">y_pred</span><span class="o">=</span><span class="n">yp</span><span class="p">,</span> <span class="c1"># np.argmaxを通したYp </span>
+                                  <span class="n">y_pred</span><span class="o">=</span><span class="bp">cls</span><span class="p">,</span> <span class="c1"># np.argmaxを通したYp </span>
                                   <span class="n">classes</span><span class="o">=</span><span class="n">data</span><span class="o">.</span><span class="n">classes</span><span class="p">,</span> <span class="c1"># クラス名</span>
                                   <span class="n">title</span><span class="o">=</span><span class="s1">&#39;confusion matrix&#39;</span><span class="p">,</span> <span class="c1"># 出力グラフのタイトル</span>
                                   <span class="n">fname</span><span class="o">=</span><span class="s1">&#39;confusion_matrix.png&#39;</span><span class="p">)</span> <span class="c1"># 出力パス</span>

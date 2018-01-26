@@ -1,7 +1,7 @@
 # dlt : Deep Learning Tools
 
 [![license](https://img.shields.io/github/license/mashape/apistatus.svg)](https://github.com/hiroyuki827/deep_learning_tools/blob/master/LICENSE.md)
-[![PyPI](https://img.shields.io/pypi/v/dlt.svg)](http://pypi.python.org/pypi/dlt/0.1.1)
+[![PyPI](https://img.shields.io/pypi/v/dlt.svg)](http://pypi.python.org/pypi/dlt/0.2)
 [![Build Status](https://travis-ci.org/hiroyuki827/deep_learning_tools.svg?branch=master)](https://travis-ci.org/hiroyuki827/deep_learning_tools)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat_plastic)](http://makeapullrequest.com)
 
