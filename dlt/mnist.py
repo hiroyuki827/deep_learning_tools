@@ -24,8 +24,8 @@ def load_data():
     (X_train, y_train), (X_test, y_test) = mnist.load_data()
 
     data = Dataset()
-    data.train_images = X_train
-    data.train_labels = y_train
+    data.train_images = X_train  # -> data.__dict__ = {'train_images': X_train}
+    data.train_labels = y_train  # -> data.__dict__ = {'train_images': X_train, 'train_labels': y_train} and so on.
     data.test_images = X_test
     data.test_labels = y_test
     data.classes = np.arange(10)

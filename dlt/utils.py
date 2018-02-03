@@ -19,7 +19,7 @@ from sklearn.metrics import confusion_matrix
 
 
 class Dataset():
-    """Simple dataset container
+    """Simple dataset container provided as a dictionary type
     """
 
     def __init__(self, **kwds):
@@ -95,6 +95,7 @@ def plot_prediction(Yp, X, y, classes=None, top_n=False, fname=None):
                         bottom=0.15, top=0.98, wspace=0.02)
     plot_image(X, ax1)
 
+    # only show top n categories
     if top_n:
         n = top_n
         s = np.argsort(Yp)[-top_n:]
@@ -102,16 +103,20 @@ def plot_prediction(Yp, X, y, classes=None, top_n=False, fname=None):
         n = len(Yp)
         s = np.arange(n)[::-1]
 
+    # design the bar graph
     patches = ax2.barh(np.arange(n), Yp[s], align='center')
     ax2.set(xlim=(0, 1), xlabel='Probability', yticks=[])
 
+    # assign orange (C1) into the bar showing correct label
     for iy, patch in zip(s, patches):
         if iy == y:
             patch.set_facecolor('C1')  # color correct patch
 
+    # if not given classes, assign numbers
     if classes is None:
         classes = np.arange(0, np.size(Yp))
 
+    # label name along with y-axis
     for i in range(n):
         ax2.text(0.05, i, classes[s][i], ha='left', va='center')
 
