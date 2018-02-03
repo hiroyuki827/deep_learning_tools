@@ -14,4 +14,4 @@ The package is originally created by [Mr.David Walz](https://github.com/DavidWal
 このファイルは、RWTHアーヘン工科大学の講義「Deep Learning in Physics Research」の講義を行っている、David Walz氏によって作成されたものです。主にVISPA上で使うことを想定されてデザインされていましたが、今回、機械学習のチュートリアルを行う際に非常に有益であろうと考えたので、自分たちのコンピュータ上でも実行できるよう、プログラムを書き換えました。この`dlt`によってCIFAR-10とMNISTのチュートリアルがより理解できるようになると思います。
 
 ## How to use
-Please run `pip install dlt` and read the documents, `How to use dlt package` or `dltパッケージの使い方`.
+Please run `pip install dlt` and read [the documents](https://hiroyuki827.github.io/deep_learning_tools/index.html)

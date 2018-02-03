@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head><meta charset="utf-8" />
-<title>dltパッケージの使い方</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>How_to_use_dlt_package</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 
 <style type="text/css">
@@ -11775,7 +11775,7 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="dlt-(Deep-Learning-Tools)-&#12497;&#12483;&#12465;&#12540;&#12472;&#12398;&#20351;&#12356;&#26041;">dlt (Deep Learning Tools) &#12497;&#12483;&#12465;&#12540;&#12472;&#12398;&#20351;&#12356;&#26041;<a class="anchor-link" href="#dlt-(Deep-Learning-Tools)-&#12497;&#12483;&#12465;&#12540;&#12472;&#12398;&#20351;&#12356;&#26041;">&#182;</a></h1>
+<h1 id="How-to-use-dlt-package">How to use <code>dlt</code> package<a class="anchor-link" href="#How-to-use-dlt-package">&#182;</a></h1>
 </div>
 </div>
 </div>
@@ -11783,20 +11783,10 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>この記事は、<a href="https://qiita.com/hiroyuki827/items/8c59cb26844b6db46f06">Kerasを用いたCIFAR-10チュートリアル</a>で用いるdltパッケージの使い方をまとめたものです。</p>
-<p><strong>===&gt;&gt; English version is <a href="https://hiroyuki827.github.io/deep_learning_tools/How_to_use_dlt_package.html">HERE</a></strong></p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="&#35504;&#12364;&#20316;&#12387;&#12383;&#12363;?">&#35504;&#12364;&#20316;&#12387;&#12383;&#12363;?<a class="anchor-link" href="#&#35504;&#12364;&#20316;&#12387;&#12383;&#12363;?">&#182;</a></h2><p>もともとこのパッケージを作ったのは、RWTH Aachen工科大学の<a href="https://github.com/DavidWalz/dlipr">David Waltz</a>氏です。私は彼の「Deep Learning in Physics Research」という講義を取っており、その講義を通してDeep Learningを学びました。この講義で使われていたdltは、大学のクラスター上で動くものでしたが、私は個人のコンピュータでも動くように修正し、<code>dlt</code> (Deep Learning Tools)として、ここで公開することにしました。</p>
-<h4 id="&#12371;&#12398;&#12494;&#12540;&#12488;&#12395;&#12388;&#12356;&#12390;">&#12371;&#12398;&#12494;&#12540;&#12488;&#12395;&#12388;&#12356;&#12390;<a class="anchor-link" href="#&#12371;&#12398;&#12494;&#12540;&#12488;&#12395;&#12388;&#12356;&#12390;">&#182;</a></h4><p>この記事では、それらをどう使うかを紹介していきます。以下では、<strong><a href="https://github.com/zalandoresearch/fashion-mnist/blob/master/README.ja.md">Fashion MNIST</a></strong> を例に扱ってみます。ここでは詳しいディープラーニングの内容は解説しませんが、dltを使えばどんな結果を得ることができるかを知っていただくことを目的としているので、ディープラーニングについて知らなくても構いません。少々理解できないところがあっても、後から理解されることをおすすめします。</p>
+<h2 id="Who-created-this?">Who created this?<a class="anchor-link" href="#Who-created-this?">&#182;</a></h2><p><a href="https://github.com/DavidWalz/dlipr">David Waltz</a> at RWTH Aachen University originally created <code>dlipr</code> package. I took his lecture, 'Deep Learning in Physics Research' and studied the deep learning. The software used in the lecture was supposed to run only on the cluster of the university but I personally customized it as <code>dlt</code> (Deep Learning Tools) so that everyone can use on their own environment.</p>
+<h4 id="About-this-note">About this note<a class="anchor-link" href="#About-this-note">&#182;</a></h4><p>In this article, I explained how to use <code>dlt</code>. Following, I took an example of the dataset, <strong><a href="https://github.com/zalandoresearch/fashion-mnist/blob/master/README.ja.md">Fashion MNIST</a></strong> and show you how dlt works effectively. Basically you do not have to understand the deep learning in advance, and if you encounter the parts where you cannot understand please skip them. If so, I would like you to have a look at the images which you will get.</p>
 <ul>
-<li><code>dlt</code>を使うところでは、★マークを使っています。</li>
+<li>I use ★ mark where the package is used.</li>
 </ul>
 
 </div>
@@ -11806,7 +11796,7 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="&#12393;&#12358;&#20351;&#12360;&#12400;&#12424;&#12356;&#12363;?">&#12393;&#12358;&#20351;&#12360;&#12400;&#12424;&#12356;&#12363;?<a class="anchor-link" href="#&#12393;&#12358;&#20351;&#12360;&#12400;&#12424;&#12356;&#12363;?">&#182;</a></h2><h3 id="&#28310;&#20633;">&#28310;&#20633;<a class="anchor-link" href="#&#28310;&#20633;">&#182;</a></h3><p>まず、ライブラリのバージョンを示しておきます。</p>
+<h2 id="How-can-we-use-it?">How can we use it?<a class="anchor-link" href="#How-can-we-use-it?">&#182;</a></h2><h3 id="Preparation">Preparation<a class="anchor-link" href="#Preparation">&#182;</a></h3><p>Before doing anything, I will show you the version of the libraries as follows:</p>
 
 </div>
 </div>
@@ -11881,52 +11871,6 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[3]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">tensorflow</span>
-<span class="n">tensorflow</span><span class="o">.</span><span class="n">__version__</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stderr output_text">
-<pre>/usr/local/anaconda3/lib/python3.6/importlib/_bootstrap.py:219: RuntimeWarning: compiletime version 3.5 of module &#39;tensorflow.python.framework.fast_tensor_util&#39; does not match runtime version 3.6
-  return f(*args, **kwds)
-</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-<div class="prompt output_prompt">Out[3]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>&#39;1.4.1&#39;</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
 <div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
@@ -11974,12 +11918,9 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<ul>
-<li>dltパッケージを使うために、</li>
-</ul>
+<p>To use <code>dlt</code> package, please run</p>
 
 <pre><code>pip install dlt</code></pre>
-<p>を実行してください。</p>
 
 </div>
 </div>
@@ -11988,7 +11929,7 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="&#12487;&#12451;&#12540;&#12503;&#12521;&#12540;&#12491;&#12531;&#12464;---Fashion-MNIST">&#12487;&#12451;&#12540;&#12503;&#12521;&#12540;&#12491;&#12531;&#12464; - Fashion-MNIST<a class="anchor-link" href="#&#12487;&#12451;&#12540;&#12503;&#12521;&#12540;&#12491;&#12531;&#12464;---Fashion-MNIST">&#182;</a></h3>
+<h3 id="Deep-Learning---Fashion-MNIST">Deep Learning - Fashion-MNIST<a class="anchor-link" href="#Deep-Learning---Fashion-MNIST">&#182;</a></h3>
 </div>
 </div>
 </div>
@@ -11996,7 +11937,7 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>基本的には<a href="https://github.com/keras-team/keras/blob/master/examples/mnist_cnn.py">MNISTのサンプルコード</a>を参考にします。</p>
+<p>I refered to <a href="https://github.com/keras-team/keras/blob/master/examples/mnist_cnn.py">the sample code of MNIST</a></p>
 
 </div>
 </div>
@@ -12006,14 +11947,14 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
-<span class="kn">import</span> <span class="nn">keras</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">keras</span>
 <span class="kn">from</span> <span class="nn">keras.models</span> <span class="k">import</span> <span class="n">Sequential</span>
 <span class="kn">from</span> <span class="nn">keras.layers</span> <span class="k">import</span> <span class="n">Dense</span><span class="p">,</span> <span class="n">Dropout</span><span class="p">,</span> <span class="n">Flatten</span><span class="p">,</span> <span class="n">Activation</span>
 <span class="kn">from</span> <span class="nn">keras.layers</span> <span class="k">import</span> <span class="n">Conv2D</span><span class="p">,</span> <span class="n">MaxPooling2D</span>
 <span class="kn">from</span> <span class="nn">keras</span> <span class="k">import</span> <span class="n">backend</span> <span class="k">as</span> <span class="n">K</span>
 <span class="kn">import</span> <span class="nn">os</span> 
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
 <span class="kn">import</span> <span class="nn">dlt</span>
 </pre></div>
 
@@ -12026,7 +11967,7 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="&#9733;-&#12487;&#12540;&#12479;&#12475;&#12483;&#12488;&#12398;&#35501;&#12415;&#36796;&#12415;">&#9733; &#12487;&#12540;&#12479;&#12475;&#12483;&#12488;&#12398;&#35501;&#12415;&#36796;&#12415;<a class="anchor-link" href="#&#9733;-&#12487;&#12540;&#12479;&#12475;&#12483;&#12488;&#12398;&#35501;&#12415;&#36796;&#12415;">&#182;</a></h4><p>Fashion MNISTのデータセットを読み込むメソッドは以下のようにして読み込みます。</p>
+<h4 id="&#9733;-Reading-the-dataset">&#9733; Reading the dataset<a class="anchor-link" href="#&#9733;-Reading-the-dataset">&#182;</a></h4><p>Fashion MNIST dataset can be read as follows:</p>
 
 </div>
 </div>
@@ -12066,11 +12007,8 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<ul>
-<li>dltでは以下のデータセットを用意しています: <code>CIFAR-10</code>, <code>CIFAR-100</code>, <code>MNIST</code>, <code>FASHION-MNIST</code></li>
-<li>各ファイルに上記の<code>load_data</code>に相当するメソッドが定義されています。</li>
-</ul>
-<p>各データには以下のようにアクセスできます。Fashion MNISTはMNISTと同じデータ量（フォーマット）で提供されているので、MNISTと同じように扱えます。</p>
+<p>In dlt, the following dataset is available:<code>CIFAR-10</code>, <code>CIFAR-100</code>, <code>MNIST</code>, <code>FASHION-MNIST</code>. Each file has own <code>load_data</code> method like above example.</p>
+<p>You can access the raw data as follows. Fashion-MNIST dataset is provided through the same format as well-known MNIST.</p>
 
 </div>
 </div>
@@ -12079,7 +12017,7 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h5 id="&#35347;&#32244;&#12487;&#12540;&#12479;">&#35347;&#32244;&#12487;&#12540;&#12479;<a class="anchor-link" href="#&#35347;&#32244;&#12487;&#12540;&#12479;">&#182;</a></h5>
+<h5 id="Training-data">Training data<a class="anchor-link" href="#Training-data">&#182;</a></h5>
 </div>
 </div>
 </div>
@@ -12167,7 +12105,7 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h5 id="&#12486;&#12473;&#12488;&#12487;&#12540;&#12479;">&#12486;&#12473;&#12488;&#12487;&#12540;&#12479;<a class="anchor-link" href="#&#12486;&#12473;&#12488;&#12487;&#12540;&#12479;">&#182;</a></h5>
+<h5 id="Test-data">Test data<a class="anchor-link" href="#Test-data">&#182;</a></h5>
 </div>
 </div>
 </div>
@@ -12240,25 +12178,56 @@ div#notebook {
 </div>
 
 </div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[12]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">classes</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>[&#39;T-short/top&#39; &#39;Trouser&#39; &#39;Pullover&#39; &#39;Dress&#39; &#39;Coat&#39; &#39;Sandal&#39; &#39;Shirt&#39;
+ &#39;Sneaker&#39; &#39;Bag&#39; &#39;Ankle boot&#39;]
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>★また、各ターゲットとなるデータセット<code>y_train</code>, <code>y_test</code>に、正解ラベルがどういう分布で含まれているかは以下のようにしてチェックできます。代表的なデータセットはラベルの偏りがないように、それぞれのラベルに対して同数の学習データが用意されています。自分で画像を持ってきて用意する際も、なるべくこのようにすることが理想的です。</p>
+<p>★ You can examine how the true labels are distributed in <code>y_train</code>, <code>y_test</code>. The typical datasets are basically prepared the same number of the labels so that there is not bias of them. When we set up our own datasets, we need to do like this as much as possible in order to obtain correct results.</p>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[12]:</div>
+<div class="prompt input_prompt">In&nbsp;[13]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">dlt</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">plot_distribution_data</span><span class="p">(</span><span class="n">Y</span><span class="o">=</span><span class="n">data</span><span class="o">.</span><span class="n">train_labels</span><span class="p">,</span> <span class="c1">#正解ラベルのデータセット</span>
-                                 <span class="n">dataset_name</span><span class="o">=</span><span class="s1">&#39;y_train&#39;</span><span class="p">,</span> <span class="c1"># そのデータセットの名前</span>
-                                 <span class="n">classes</span><span class="o">=</span><span class="n">data</span><span class="o">.</span><span class="n">classes</span><span class="p">,</span> <span class="c1"># ラベル</span>
-                                 <span class="n">fname</span><span class="o">=</span><span class="s1">&#39;dist_train.png&#39;</span> <span class="c1"># 出力するファイルパス</span>
-                                <span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">dlt</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">plot_distribution_data</span><span class="p">(</span><span class="n">Y</span><span class="o">=</span><span class="n">data</span><span class="o">.</span><span class="n">train_labels</span><span class="p">,</span> <span class="c1"># set the target dataset</span>
+                                 <span class="n">dataset_name</span><span class="o">=</span><span class="s1">&#39;y_train&#39;</span><span class="p">,</span> <span class="c1"># its name</span>
+                                 <span class="n">classes</span><span class="o">=</span><span class="n">data</span><span class="o">.</span><span class="n">classes</span><span class="p">,</span> <span class="c1"># class label</span>
+                                 <span class="n">fname</span><span class="o">=</span><span class="s1">&#39;dist_train.png&#39;</span><span class="p">)</span> <span class="c1"># output filename</span>
 </pre></div>
 
 </div>
@@ -12298,7 +12267,7 @@ Standard Deviation: 0.0
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[13]:</div>
+<div class="prompt input_prompt">In&nbsp;[14]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">dlt</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">plot_distribution_data</span><span class="p">(</span><span class="n">Y</span><span class="o">=</span><span class="n">data</span><span class="o">.</span><span class="n">test_labels</span><span class="p">,</span> 
@@ -12346,19 +12315,19 @@ Standard Deviation: 0.0
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="&#9733;&#12469;&#12531;&#12503;&#12523;&#30011;&#20687;&#12398;&#34920;&#31034;">&#9733;&#12469;&#12531;&#12503;&#12523;&#30011;&#20687;&#12398;&#34920;&#31034;<a class="anchor-link" href="#&#9733;&#12469;&#12531;&#12503;&#12523;&#30011;&#20687;&#12398;&#34920;&#31034;">&#182;</a></h4><p>dltにはサンプル画像を表示するメソッドも用意されています。どういう画像が学習画像となっているかわかりますね。</p>
+<h4 id="&#9733;Visualize-the-sample-images">&#9733;Visualize the sample images<a class="anchor-link" href="#&#9733;Visualize-the-sample-images">&#182;</a></h4><p>Before the deep learning actually, you may want to look at some sample images. This is like this:</p>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[14]:</div>
+<div class="prompt input_prompt">In&nbsp;[15]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">dlt</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">plot_examples</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> 
-                          <span class="n">num_examples</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="c1"># 縦に何個表示するか (横はカテゴリーと一致)</span>
-                         <span class="n">fname</span><span class="o">=</span><span class="s1">&#39;fashion_mnist_examples.png&#39;</span> <span class="c1"># ファイルパス</span>
+                          <span class="n">num_examples</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="c1"># How many images show on the column (#row corresponds #category)</span>
+                         <span class="n">fname</span><span class="o">=</span><span class="s1">&#39;fashion_mnist_examples.png&#39;</span> <span class="c1"># filename</span>
                        <span class="p">)</span>
 </pre></div>
 
@@ -12378,7 +12347,7 @@ Standard Deviation: 0.0
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[15]:</div>
+<div class="prompt input_prompt">In&nbsp;[16]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">X_train</span> <span class="o">=</span> <span class="n">X_train</span><span class="o">.</span><span class="n">reshape</span><span class="p">([</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">28</span><span class="p">,</span> <span class="mi">28</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
@@ -12405,7 +12374,7 @@ Standard Deviation: 0.0
 <span class="n">model</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">loss</span><span class="o">=</span><span class="n">keras</span><span class="o">.</span><span class="n">losses</span><span class="o">.</span><span class="n">categorical_crossentropy</span><span class="p">,</span>
               <span class="n">optimizer</span><span class="o">=</span><span class="n">keras</span><span class="o">.</span><span class="n">optimizers</span><span class="o">.</span><span class="n">Adadelta</span><span class="p">(),</span>
               <span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;accuracy&#39;</span><span class="p">])</span>
-              
+
 <span class="n">fit</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span>
           <span class="n">batch_size</span><span class="o">=</span><span class="mi">128</span><span class="p">,</span>
           <span class="n">epochs</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span>
@@ -12429,29 +12398,29 @@ Standard Deviation: 0.0
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Train on 60000 samples, validate on 10000 samples
 Epoch 1/12
-60000/60000 [==============================] - 289s 5ms/step - loss: 0.6023 - acc: 0.7908 - val_loss: 0.3954 - val_acc: 0.8592
+60000/60000 [==============================] - 287s 5ms/step - loss: 0.6303 - acc: 0.7782 - val_loss: 0.3950 - val_acc: 0.8582
 Epoch 2/12
-60000/60000 [==============================] - 350s 6ms/step - loss: 0.3897 - acc: 0.8630 - val_loss: 0.3380 - val_acc: 0.8793
+60000/60000 [==============================] - 350s 6ms/step - loss: 0.4031 - acc: 0.8613 - val_loss: 0.3346 - val_acc: 0.8796
 Epoch 3/12
-60000/60000 [==============================] - 287s 5ms/step - loss: 0.3415 - acc: 0.8805 - val_loss: 0.3063 - val_acc: 0.8903
+60000/60000 [==============================] - 288s 5ms/step - loss: 0.3473 - acc: 0.8801 - val_loss: 0.3061 - val_acc: 0.8914
 Epoch 4/12
-60000/60000 [==============================] - 306s 5ms/step - loss: 0.3150 - acc: 0.8892 - val_loss: 0.2884 - val_acc: 0.8974
+60000/60000 [==============================] - 305s 5ms/step - loss: 0.3183 - acc: 0.8886 - val_loss: 0.2975 - val_acc: 0.8944
 Epoch 5/12
-60000/60000 [==============================] - 310s 5ms/step - loss: 0.2922 - acc: 0.8971 - val_loss: 0.2751 - val_acc: 0.9004
+60000/60000 [==============================] - 311s 5ms/step - loss: 0.2944 - acc: 0.8961 - val_loss: 0.2782 - val_acc: 0.8981
 Epoch 6/12
-60000/60000 [==============================] - 308s 5ms/step - loss: 0.2746 - acc: 0.9029 - val_loss: 0.2673 - val_acc: 0.9040
+60000/60000 [==============================] - 308s 5ms/step - loss: 0.2781 - acc: 0.9011 - val_loss: 0.2638 - val_acc: 0.9045
 Epoch 7/12
-60000/60000 [==============================] - 299s 5ms/step - loss: 0.2603 - acc: 0.9070 - val_loss: 0.2538 - val_acc: 0.9093
+60000/60000 [==============================] - 300s 5ms/step - loss: 0.2643 - acc: 0.9069 - val_loss: 0.2577 - val_acc: 0.9073
 Epoch 8/12
-60000/60000 [==============================] - 296s 5ms/step - loss: 0.2494 - acc: 0.9118 - val_loss: 0.2533 - val_acc: 0.9070
+60000/60000 [==============================] - 294s 5ms/step - loss: 0.2505 - acc: 0.9104 - val_loss: 0.2504 - val_acc: 0.9090
 Epoch 9/12
-60000/60000 [==============================] - 308s 5ms/step - loss: 0.2372 - acc: 0.9168 - val_loss: 0.2441 - val_acc: 0.9105
+60000/60000 [==============================] - 309s 5ms/step - loss: 0.2386 - acc: 0.9166 - val_loss: 0.2386 - val_acc: 0.9139
 Epoch 10/12
-60000/60000 [==============================] - 303s 5ms/step - loss: 0.2271 - acc: 0.9184 - val_loss: 0.2344 - val_acc: 0.9142
+60000/60000 [==============================] - 303s 5ms/step - loss: 0.2289 - acc: 0.9198 - val_loss: 0.2389 - val_acc: 0.9131
 Epoch 11/12
-60000/60000 [==============================] - 308s 5ms/step - loss: 0.2195 - acc: 0.9221 - val_loss: 0.2338 - val_acc: 0.9162
+60000/60000 [==============================] - 308s 5ms/step - loss: 0.2210 - acc: 0.9216 - val_loss: 0.2369 - val_acc: 0.9164
 Epoch 12/12
-60000/60000 [==============================] - 300s 5ms/step - loss: 0.2101 - acc: 0.9259 - val_loss: 0.2338 - val_acc: 0.9168
+60000/60000 [==============================] - 302s 5ms/step - loss: 0.2122 - acc: 0.9246 - val_loss: 0.2242 - val_acc: 0.9207
 </pre>
 </div>
 </div>
@@ -12462,7 +12431,7 @@ Epoch 12/12
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[16]:</div>
+<div class="prompt input_prompt">In&nbsp;[17]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">score</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
@@ -12484,8 +12453,8 @@ Epoch 12/12
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Test loss: 0.233760581553
-Test accuracy: 0.9168
+<pre>Test loss: 0.224214684319
+Test accuracy: 0.9207
 </pre>
 </div>
 </div>
@@ -12498,18 +12467,18 @@ Test accuracy: 0.9168
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>★ 学習の経過を表す損失関数と精度のグラフは</p>
+<p>★ The graph of the loss function and accurary which shows the learning process is given by</p>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[17]:</div>
+<div class="prompt input_prompt">In&nbsp;[18]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">dlt</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">plot_loss_and_accuracy</span><span class="p">(</span><span class="n">fit</span><span class="p">,</span>  <span class="c1">#model.fitのインスタンス</span>
-                                   <span class="n">fname</span><span class="o">=</span><span class="s1">&#39;loss_and_accuracy_graph.png&#39;</span> <span class="c1">#保存するファイル名とパス</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">dlt</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">plot_loss_and_accuracy</span><span class="p">(</span><span class="n">fit</span><span class="p">,</span>  <span class="c1"># instance of model.fit</span>
+                                   <span class="n">fname</span><span class="o">=</span><span class="s1">&#39;loss_and_accuracy_graph.png&#39;</span> <span class="c1">#filename and path to save image</span>
                                   <span class="p">)</span>
 </pre></div>
 
@@ -12527,18 +12496,9 @@ Test accuracy: 0.9168
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>とすれば得られます。</p>
-
-</div>
-</div>
-</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[18]:</div>
+<div class="prompt input_prompt">In&nbsp;[19]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># predicted probabilities for the test set</span>
@@ -12555,7 +12515,7 @@ Test accuracy: 0.9168
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="&#9733;&#12486;&#12473;&#12488;&#30011;&#20687;&#12395;&#23550;&#12377;&#12427;&#20998;&#39006;&#31934;&#24230;">&#9733;&#12486;&#12473;&#12488;&#30011;&#20687;&#12395;&#23550;&#12377;&#12427;&#20998;&#39006;&#31934;&#24230;<a class="anchor-link" href="#&#9733;&#12486;&#12473;&#12488;&#30011;&#20687;&#12395;&#23550;&#12377;&#12427;&#20998;&#39006;&#31934;&#24230;">&#182;</a></h4>
+<h4 id="&#9733;The-classification-accuracy-for-Test-dataset">&#9733;The classification accuracy for Test dataset<a class="anchor-link" href="#&#9733;The-classification-accuracy-for-Test-dataset">&#182;</a></h4>
 </div>
 </div>
 </div>
@@ -12563,25 +12523,25 @@ Test accuracy: 0.9168
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>また分類タスクでは、各テスト画像に対してどの程度の精度で分類されたかを知りたいことが多いですね（というか知らないとだめです）。その時どう出力すればいいか迷うことがあるのですが、dltでは以下のようにすれば、わかりやすい結果が得られます。</p>
+<p>In the classification task, we sometimes want to know how much accuracy each images are classified. In that case, we often confused how to realize it. <code>dlt</code> has the convenient method to give good image:</p>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[19]:</div>
+<div class="prompt input_prompt">In&nbsp;[20]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># とりあえず10枚</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># 10 images</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
     <span class="n">dlt</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">plot_prediction</span><span class="p">(</span>
-        <span class="n">Yp</span><span class="o">=</span><span class="n">preds</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="c1"># 各クラスに対して予測されたラベル </span>
-        <span class="n">X</span><span class="o">=</span><span class="n">data</span><span class="o">.</span><span class="n">test_images</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="c1"># 各クラスを表す画像</span>
-        <span class="n">y</span><span class="o">=</span><span class="n">data</span><span class="o">.</span><span class="n">test_labels</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="c1"># 正しいクラスのラベル</span>
-        <span class="n">classes</span><span class="o">=</span><span class="n">data</span><span class="o">.</span><span class="n">classes</span><span class="p">,</span> <span class="c1"># ラベル名</span>
-        <span class="n">top_n</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="c1"># 上位いくつまで表示させるか. Falseならすべてのカテゴリーに対する精度を表示</span>
-        <span class="n">fname</span><span class="o">=</span><span class="s1">&#39;test-</span><span class="si">%i</span><span class="s1">.png&#39;</span> <span class="o">%</span> <span class="n">i</span><span class="p">)</span> <span class="c1"># 保存するファイル名</span>
+        <span class="n">Yp</span><span class="o">=</span><span class="n">Yp</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="c1"># the predicted label for Test dataset</span>
+        <span class="n">X</span><span class="o">=</span><span class="n">data</span><span class="o">.</span><span class="n">test_images</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="c1"># the image on each label</span>
+        <span class="n">y</span><span class="o">=</span><span class="n">data</span><span class="o">.</span><span class="n">test_labels</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="c1"># the correct label </span>
+        <span class="n">classes</span><span class="o">=</span><span class="n">data</span><span class="o">.</span><span class="n">classes</span><span class="p">,</span> <span class="c1"># the label name</span>
+        <span class="n">top_n</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="c1"># How many images from the top. If False, it shows all category</span>
+        <span class="n">fname</span><span class="o">=</span><span class="s1">&#39;test-</span><span class="si">%i</span><span class="s1">.png&#39;</span> <span class="o">%</span> <span class="n">i</span><span class="p">)</span> <span class="c1"># filepath</span>
 </pre></div>
 
 </div>
@@ -12606,9 +12566,9 @@ Test accuracy: 0.9168
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>オレンジ色の棒は正しいラベルの分類精度を表し、青色の棒は間違ったラベルの分類精度を表しています。</p>
-<p>最後の画像を例とすると、これは<code>Shirt</code>とほとんど90%以上の精度で分類していますが、5%程度で<code>T-shirt/top</code>と分類しています。</p>
-<p>結果を全体的に見たいときは、以下のConfusion Matrixが便利です。</p>
+<p>The orange (blue) bar shows the accuracy on the correct (wrong) label.</p>
+<p>Taking the last image as asn example, the calculation classifies <code>Shirt</code> with the accuracy over 90%, but <code>T-shirt/top</code> with the one around 5%.</p>
+<p>If you want to know the result on the whole, Confusion Matrix will help you understand well.</p>
 
 </div>
 </div>
@@ -12617,21 +12577,21 @@ Test accuracy: 0.9168
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="&#9733;Confusion-Matrix">&#9733;Confusion Matrix<a class="anchor-link" href="#&#9733;Confusion-Matrix">&#182;</a></h4><p>confusion matrixについては以下のように出力できます。</p>
-
+<h4 id="&#9733;Confusion-Matrix">&#9733;Confusion Matrix<a class="anchor-link" href="#&#9733;Confusion-Matrix">&#182;</a></h4>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[20]:</div>
+<div class="prompt input_prompt">In&nbsp;[21]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">dlt</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">plot_confusion_matrix</span><span class="p">(</span><span class="n">test_labels</span><span class="o">=</span><span class="n">data</span><span class="o">.</span><span class="n">test_labels</span><span class="p">,</span> <span class="c1"># 正しいテストラベル(one-hot vectorに変換する前)</span>
-                                  <span class="n">y_pred</span><span class="o">=</span><span class="bp">cls</span><span class="p">,</span> <span class="c1"># np.argmaxを通したYp </span>
-                                  <span class="n">classes</span><span class="o">=</span><span class="n">data</span><span class="o">.</span><span class="n">classes</span><span class="p">,</span> <span class="c1"># クラス名</span>
-                                  <span class="n">title</span><span class="o">=</span><span class="s1">&#39;confusion matrix&#39;</span><span class="p">,</span> <span class="c1"># 出力グラフのタイトル</span>
-                                  <span class="n">fname</span><span class="o">=</span><span class="s1">&#39;confusion_matrix.png&#39;</span><span class="p">)</span> <span class="c1"># 出力パス</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">dlt</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">plot_confusion_matrix</span><span class="p">(</span><span class="n">test_labels</span><span class="o">=</span><span class="n">data</span><span class="o">.</span><span class="n">test_labels</span><span class="p">,</span> <span class="c1"># the correct label (before converting one-hot vector)</span>
+                                  <span class="n">y_pred</span><span class="o">=</span><span class="n">yp</span><span class="p">,</span> <span class="c1"># Yp after np.argmax</span>
+                                  <span class="n">classes</span><span class="o">=</span><span class="n">data</span><span class="o">.</span><span class="n">classes</span><span class="p">,</span> <span class="c1"># the label name</span>
+                                  <span class="n">title</span><span class="o">=</span><span class="s1">&#39;confusion matrix&#39;</span><span class="p">,</span> <span class="c1"># title of the graph</span>
+                                  <span class="n">fname</span><span class="o">=</span><span class="s1">&#39;confusion_matrix.png&#39;</span> <span class="c1"># filename</span>
+                               <span class="p">)</span>
 </pre></div>
 
 </div>
@@ -12652,22 +12612,7 @@ Test accuracy: 0.9168
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>縦軸は正しいラベル、横軸は学習によって予測されたラベルを表しています。横軸から見れば、たとえば<code>Shirt</code>ラベルを見ると、67.80%で正しく<code>shirt</code>と分類されていますが、6.50%で<code>T-shirt/top</code>と分類されていることがわかります。</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="&#23487;&#38988;">&#23487;&#38988;<a class="anchor-link" href="#&#23487;&#38988;">&#182;</a></h2><p>とりあえず、dltに触れるために簡単な宿題を出しておきます。これをこなせばありがたみがわかると思うので・・・</p>
-<ol>
-<li><p>MNISTデータセットの場合、上の手順に従えば、どのような結果が得られるでしょうか？（ネットワーク構造は変更しなくても構いません。)</p>
-</li>
-<li><p>出力画像の保存ディレクトリを変更してみましょう。</p>
-</li>
-</ol>
+<p>The vertical (horizontal) axis represents the correct (predicted) label. Looking from the horizontal axis, if we see <code>Shirt</code> label, for example, it was classified to <code>Shirt</code> correctly with 67.80%, but also wrongly classified to <code>T-shirt/top</code> with 6.50 %.</p>
 
 </div>
 </div>
