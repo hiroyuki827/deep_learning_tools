@@ -3,15 +3,7 @@ Common tools
 """
 
 import itertools
-import os
 from statistics import mean, median, variance, stdev
-
-import matplotlib as mpl
-
-# the order of these codes is really important to test on Travis, which shouldn't be changed.
-if os.environ.get('DISPLAY', '') == '':
-    print('no display found. Using non-interactive Agg backend')
-    mpl.use('Agg')
 
 import matplotlib.pyplot as plt
 import numpy as np

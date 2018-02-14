@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
     name='dlt',
-    version='0.2.2',
+    version='0.2.3',
     packages=['dlt'],
     url='https://github.com/hiroyuki827/deep_learning_tools',
     license='MIT',
